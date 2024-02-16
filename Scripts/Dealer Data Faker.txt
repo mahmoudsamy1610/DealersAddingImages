@@ -1,0 +1,19 @@
+import com.github.javafaker.Faker
+
+Faker faker = new Faker()
+
+// Generate fake data
+String email = faker.internet().emailAddress()
+String userName = faker.name().username()
+String firstName = faker.name().firstName()
+String lastName = faker.name().lastName()
+String companyName = faker.company().name()
+String companyAddress = faker.address().streetAddress()
+
+// Set the generated data into JMeter variables
+vars.put("email" , email)
+vars.put("userName" , userName)
+vars.put("firstName" , firstName)
+vars.put("lastName" , lastName)
+vars.put("companyName" , companyName)
+vars.put("companyAddress" , companyAddress)

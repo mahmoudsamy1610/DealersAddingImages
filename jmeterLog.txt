@@ -1,0 +1,208 @@
+2024-02-16 09:03:40,622 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Setting JMeter property: threads=1
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Setting JMeter property: loops=1
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Copyright (c) 1998-2023 The Apache Software Foundation
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: Version 5.6.2
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: java.version=17.0.2
+2024-02-16 09:03:40,645 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: os.name=Windows 10
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: os.arch=amd64
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: os.version=10.0
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: file.encoding=Cp1252
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: java.awt.headless=true
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: Max memory     =1073741824
+2024-02-16 09:03:40,655 INFO o.a.j.JMeter: Available Processors =4
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: Default Locale=English (EN)
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: JMeterHome=D:\Programs\apache-jmeter-5.6.2
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: user.dir  =D:\Programs\apache-jmeter-5.6.2\bin
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: PWD       =D:\Programs\apache-jmeter-5.6.2\bin
+2024-02-16 09:03:40,664 INFO o.a.j.JMeter: IP: 192.168.1.4 Name: DESKTOP-U7NCNIN FullName: DESKTOP-U7NCNIN
+2024-02-16 09:03:41,896 INFO o.a.j.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'D:\Performance\Autofox\DealersAddingImages\Report'
+2024-02-16 09:03:41,896 INFO o.a.j.s.FileServer: Default base='D:\Programs\apache-jmeter-5.6.2\bin'
+2024-02-16 09:03:41,905 INFO o.a.j.s.FileServer: Set new base='D:\Performance\Autofox\DealersAddingImages'
+2024-02-16 09:03:42,086 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2024-02-16 09:03:42,117 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2024-02-16 09:03:42,117 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2024-02-16 09:03:42,125 INFO o.a.j.s.SaveService: Loading file: D:\Performance\Autofox\DealersAddingImages\DealersAddingImages.jmx
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2024-02-16 09:03:42,180 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2024-02-16 09:03:42,486 INFO o.a.j.JMeter: Creating summariser <summary>
+2024-02-16 09:03:42,495 INFO o.a.j.r.d.ReportGenerator: ReportGenerator will use for Parsing the separator: ','
+2024-02-16 09:03:42,495 INFO o.a.j.r.d.ReportGenerator: Will generate report at end of test from  results file: D:\Performance\Autofox\DealersAddingImages\log.txt
+2024-02-16 09:03:42,495 INFO o.a.j.r.d.ReportGenerator: Reading report generator properties from: D:\Programs\apache-jmeter-5.6.2\bin\reportgenerator.properties
+2024-02-16 09:03:42,495 INFO o.a.j.r.d.ReportGenerator: Merging with JMeter properties
+2024-02-16 09:03:42,500 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.temp_dir' not found, using default value 'temp' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.apdex_per_transaction' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: apdex_per_transaction is empty, not APDEX per transaction customization
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.sample_filter' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.report_title' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.start_date' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.end_date' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.date_format' not found, using default value 'null' instead.
+2024-02-16 09:03:42,505 INFO o.a.j.r.c.ReportGeneratorConfiguration: Will use date range start date: null, end date: null
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.totalTPS.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentilesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.connectTimeOverTime.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.filters_only_sample_series' not found, using default value 'true' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.series_filter' not found, using default value '' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.show_controllers_only' not found, using default value 'false' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.filters_only_sample_series' not found, using default value 'true' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.series_filter' not found, using default value '' instead.
+2024-02-16 09:03:42,515 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.show_controllers_only' not found, using default value 'false' instead.
+2024-02-16 09:03:42,540 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2024-02-16 09:03:42,545 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2024-02-16 09:03:42,545 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2024-02-16 09:03:42,554 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2024-02-16 09:03:42,554 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2024-02-16 09:03:42,609 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-fifo-0.2.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,614 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-manager-1.6.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,735 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,745 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-manager-0.20.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,745 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-json-2.7.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,745 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\javafaker-1.0.2-javadoc.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,745 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-dummy-0.4.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,754 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-debugger-0.6.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,765 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,765 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-wsc-0.7.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,765 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-tst-2.6.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,775 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-random-csv-data-set-0.8.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,775 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-parallel-0.11.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:42,786 INFO o.a.j.r.ClassFinder: Will scan jar D:\Programs\apache-jmeter-5.6.2\lib\ext\jmeter-plugins-manager-1.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2024-02-16 09:03:43,026 INFO o.a.j.JMeter: Running test (1708067023026)
+2024-02-16 09:03:43,045 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Dealer add vehicle scenario
+2024-02-16 09:03:43,045 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Dealer add vehicle scenario.
+2024-02-16 09:03:43,045 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2024-02-16 09:03:43,045 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2024-02-16 09:03:43,055 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2024-02-16 09:03:43,055 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2024-02-16 09:03:43,065 INFO o.a.j.t.JMeterThread: Thread started: Dealer add vehicle scenario 1-1
+2024-02-16 09:03:43,079 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = DESKTOP-U7NCNIN
+2024-02-16 09:03:43,086 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2024-02-16 09:03:43,086 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2024-02-16 09:03:43,086 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2024-02-16 09:03:43,086 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2024-02-16 09:03:43,086 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2024-02-16 09:03:43,249 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2024-02-16 09:03:43,264 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2024-02-16 09:03:43,264 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2024-02-16 09:03:43,415 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2024-02-16 09:03:43,415 INFO o.a.j.u.SSLManager: KeyStore created OK
+2024-02-16 09:03:43,415 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2024-02-16 09:03:50,495 INFO o.a.j.s.FileServer: Stored: D:/Performance/Autofox/DealersAddingImages/TestData/UploadVehicleImages_26.csv Alias: D:/Performance/Autofox/DealersAddingImages/TestData/UploadVehicleImages_26.csv@917289186
+2024-02-16 09:03:50,805 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:03:50,810 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\01.jpg
+2024-02-16 09:03:53,936 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:03:53,936 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\02.jpg
+2024-02-16 09:03:56,620 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:03:56,620 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\03.jpg
+2024-02-16 09:03:58,755 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:03:58,755 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\04.jpg
+2024-02-16 09:04:00,540 INFO o.a.j.r.Summariser: summary +     15 in 00:00:18 =    0.9/s Avg:   783 Min:    91 Max:  2827 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0
+2024-02-16 09:04:00,854 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:00,854 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\05.jpg
+2024-02-16 09:04:03,140 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:03,140 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\06.jpg
+2024-02-16 09:04:05,293 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:05,294 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\07.jpg
+2024-02-16 09:04:07,535 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:07,535 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\08.jpg
+2024-02-16 09:04:09,655 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:09,655 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\09.jpg
+2024-02-16 09:04:11,745 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:11,745 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\10.jpg
+2024-02-16 09:04:13,935 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:13,935 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\11.jpg
+2024-02-16 09:04:16,385 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:16,385 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\12.jpg
+2024-02-16 09:04:19,005 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:19,005 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\13.jpg
+2024-02-16 09:04:21,265 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:21,265 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\14.jpg
+2024-02-16 09:04:23,625 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:23,625 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\15.jpg
+2024-02-16 09:04:25,975 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:25,975 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\16.jpg
+2024-02-16 09:04:28,405 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:28,405 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\17.jpg
+2024-02-16 09:04:30,825 INFO o.a.j.r.Summariser: summary +     13 in 00:00:30 =    0.4/s Avg:  2018 Min:  1785 Max:  2427 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0
+2024-02-16 09:04:30,835 INFO o.a.j.r.Summariser: summary =     28 in 00:00:48 =    0.6/s Avg:  1356 Min:    91 Max:  2827 Err:     0 (0.00%)
+2024-02-16 09:04:31,140 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:31,140 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\18.jpg
+2024-02-16 09:04:33,895 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:33,895 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\19.jpg
+2024-02-16 09:04:37,445 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:37,445 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\20.jpg
+2024-02-16 09:04:40,695 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:40,695 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\21.jpg
+2024-02-16 09:04:43,020 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:43,020 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\28.jpg
+2024-02-16 09:04:45,365 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:45,365 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\29.jpg
+2024-02-16 09:04:50,680 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:50,680 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\30.jpg
+2024-02-16 09:04:53,475 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:53,475 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\34.jpg
+2024-02-16 09:04:56,170 INFO o.a.j.p.h.s.HTTPHC4Impl: Content-Header is set already on the request! Will be replaced by a Multipart-Header. Old headers: [Content-Type: application/json]
+2024-02-16 09:04:56,170 INFO o.a.j.s.FileServer: Stored: D:\Performance\Autofox\DealersAddingImages\TestData\Uno\35.jpg
+2024-02-16 09:04:58,680 INFO o.a.j.t.JMeterThread: Thread is done: Dealer add vehicle scenario 1-1
+2024-02-16 09:04:58,680 INFO o.a.j.t.JMeterThread: Thread finished: Dealer add vehicle scenario 1-1
+2024-02-16 09:04:58,680 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2024-02-16 09:04:58,680 INFO o.a.j.s.FileServer: Close: D:/Performance/Autofox/DealersAddingImages/TestData/UploadVehicleImages_26.csv@917289186
+2024-02-16 09:04:58,690 INFO o.a.j.r.Summariser: summary +     10 in 00:00:28 =    0.4/s Avg:  2503 Min:     6 Max:  5011 Err:     0 (0.00%) Active: 0 Started: 1 Finished: 1
+2024-02-16 09:04:58,690 INFO o.a.j.r.Summariser: summary =     38 in 00:01:16 =    0.5/s Avg:  1658 Min:     6 Max:  5011 Err:     0 (0.00%)
+2024-02-16 09:04:58,690 INFO o.a.j.JMeter: Generating Dashboard
+2024-02-16 09:04:58,690 INFO o.a.j.r.d.ReportGenerator: Flushing result collector before report Generation
+2024-02-16 09:04:58,720 INFO o.a.j.r.p.NormalizerSampleConsumer: Using format, 'ms', to parse timeStamp field
+2024-02-16 09:04:58,774 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples
+2024-02-16 09:04:58,774 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.Top5ErrorsBySamplerConsumer#stopProducing(): top5ErrorsBySampler produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples
+2024-02-16 09:04:58,785 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples
+2024-02-16 09:04:58,800 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples
+2024-02-16 09:04:58,800 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.SyntheticResponseTimeDistributionGraphConsumer#stopProducing(): syntheticResponseTimeDistribution produced 0 samples
+2024-02-16 09:04:58,800 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples
+2024-02-16 09:04:58,800 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 266 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TotalTPSGraphConsumer#stopProducing(): totalTPS produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples
+2024-02-16 09:04:58,807 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesOverTimeGraphConsumer#stopProducing(): responseTimePercentilesOverTime produced 0 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ConnectTimeOverTimeGraphConsumer#stopProducing(): connectTimeOverTime produced 0 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 570 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): dateRangeFilter produced 114 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 38 samples
+2024-02-16 09:04:58,814 INFO o.a.j.r.p.CsvFileSampleSource: produce(): 38 samples produced in 69ms on channel 0
+2024-02-16 09:04:58,814 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'json' of className:'org.apache.jmeter.report.dashboard.JsonExporter'
+2024-02-16 09:04:58,945 INFO o.a.j.r.d.JsonExporter: Found data for consumer statisticsSummary in context
+2024-02-16 09:04:58,945 INFO o.a.j.r.d.JsonExporter: Creating statistics for overall
+2024-02-16 09:04:58,945 INFO o.a.j.r.d.JsonExporter: Creating statistics for other transactions
+2024-02-16 09:04:58,945 INFO o.a.j.r.d.JsonExporter: Checking output folder
+2024-02-16 09:04:58,945 INFO o.a.j.r.d.JsonExporter: Writing statistics JSON to D:\Performance\Autofox\DealersAddingImages\Report\statistics.json
+2024-02-16 09:04:58,995 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter'
+2024-02-16 09:04:58,995 INFO o.a.j.r.d.HtmlTemplateExporter: Will generate dashboard in folder: D:\Performance\Autofox\DealersAddingImages\Report
+2024-02-16 09:04:59,115 INFO o.a.j.r.d.HtmlTemplateExporter: Report will be generated in: D:\Performance\Autofox\DealersAddingImages\Report, creating folder structure
+2024-02-16 09:04:59,120 INFO o.a.j.r.d.TemplateVisitor: Copying folder from 'D:\Programs\apache-jmeter-5.6.2\bin\report-template' to 'D:\Performance\Autofox\DealersAddingImages\Report', got message: D:\Performance\Autofox\DealersAddingImages\Report, found non empty folder with following content [D:\Performance\Autofox\DealersAddingImages\Report\statistics.json], will be ignored
+2024-02-16 09:04:59,495 INFO o.a.j.JMeter: Dashboard generated

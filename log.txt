@@ -1,0 +1,39 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1708067023156,666,Admin login,200,OK,Dealer add vehicle scenario 1-1,text,true,,4135,235,1,1,https://autofox-alpha.softxpertdev.com/auth/login-mobile,666,0,535
+1708067025046,172,CreateDealer,200,OK,Dealer add vehicle scenario 1-1,text,true,,3676,806,1,1,https://autofox-alpha.softxpertdev.com/admin/users,172,0,0
+1708067025620,125,Add AI balance to dealer,200,OK,Dealer add vehicle scenario 1-1,text,true,,7437,311,1,1,https://autofox-alpha.softxpertdev.com/admin/transactions,125,0,0
+1708067026084,126,Add retouch balance to dealer,200,OK,Dealer add vehicle scenario 1-1,text,true,,7444,316,1,1,https://autofox-alpha.softxpertdev.com/admin/transactions,125,0,0
+1708067026565,124,Add subscribtion to dealer,200,OK,Dealer add vehicle scenario 1-1,text,true,,7507,436,1,1,https://autofox-alpha.softxpertdev.com/admin/user-subscriptions,124,0,0
+1708067027064,116,Add theme to dealer,200,OK,Dealer add vehicle scenario 1-1,text,true,,5395,298,1,1,https://autofox-alpha.softxpertdev.com/admin/user-themes,116,0,0
+1708067027545,792,Save dealer oreintations - No Ai,200,OK,Dealer add vehicle scenario 1-1,text,true,,7028,4607,1,1,https://autofox-alpha.softxpertdev.com/admin/users/5098,791,0,0
+1708067028671,298,Edit dealer advanced settings,200,OK,Dealer add vehicle scenario 1-1,text,true,,45320,301,1,1,https://autofox-alpha.softxpertdev.com/admin/users/5098,241,0,0
+1708067029346,334,Edit dealer token,200,OK,Dealer add vehicle scenario 1-1,text,true,,45310,285,1,1,https://autofox-alpha.softxpertdev.com/admin/users/5098,277,0,0
+1708067029995,105,Dealer login,200,OK,Dealer add vehicle scenario 1-1,text,true,,6564,231,1,1,https://autofox-alpha.softxpertdev.com/auth/login-mobile,105,0,0
+1708067030406,91,Create vehicle,200,OK,Dealer add vehicle scenario 1-1,text,true,,851,322,1,1,https://autofox-alpha.softxpertdev.com/vehicles,91,0,0
+1708067030806,2827,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2034,597662,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2827,0,0
+1708067033938,2377,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2047,646030,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2377,0,0
+1708067036621,1815,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2039,581787,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1815,0,0
+1708067038756,1785,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2045,541893,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1785,0,0
+1708067040856,1975,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2033,567457,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1975,0,0
+1708067043141,1850,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2044,569587,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1850,0,0
+1708067045293,1924,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2038,563546,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1924,0,0
+1708067047535,1805,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2046,538111,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1805,0,0
+1708067049656,1785,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2033,502450,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1785,0,0
+1708067051746,1874,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2047,545401,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1874,0,0
+1708067053936,2136,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2039,597143,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2136,0,0
+1708067056386,2304,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2045,603235,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2304,0,0
+1708067059006,1957,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2034,544334,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,1957,0,0
+1708067061266,2051,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2046,566368,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2051,0,0
+1708067063626,2037,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2040,626870,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2037,0,0
+1708067065973,2114,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2048,640173,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2114,0,0
+1708067068405,2427,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2050,759799,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2427,0,0
+1708067071141,2440,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2043,716184,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2440,0,0
+1708067073895,3234,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2038,991262,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,3234,0,0
+1708067077444,2942,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2045,878961,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2942,0,0
+1708067080695,2014,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2044,555270,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2014,0,0
+1708067083020,2024,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2043,579487,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2024,0,0
+1708067085366,5011,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2047,1091235,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,5011,0,175
+1708067090680,2487,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2043,768444,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2487,0,0
+1708067093475,2388,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2046,713003,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2388,0,0
+1708067096170,2491,upload image to orientation,200,OK,Dealer add vehicle scenario 1-1,text,true,,2038,732979,1,1,https://autofox-alpha.softxpertdev.com/vehicle-images,2491,0,0
+1708067098675,6,Check values,200,OK,Dealer add vehicle scenario 1-1,text,true,,758,0,1,1,null,0,0,0

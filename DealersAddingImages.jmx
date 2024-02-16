@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="DealersAddingImages" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">autofox-alpha.softxpertdev.com</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Dealer add vehicle scenario" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">${__P(loops,1)}</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="TestPlan.comments">Login as admin , create / edit dealers, then add vehicle with this dealer</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Master admin auth" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Admin login" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;login_token&quot;:&quot;151515&quot;&#xd;
+&#xd;
+}&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/auth/login-mobile</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Get master admin access token" enabled="true">
+              <stringProp name="BoundaryExtractor.useHeaders">false</stringProp>
+              <stringProp name="BoundaryExtractor.refname">adminToken</stringProp>
+              <stringProp name="BoundaryExtractor.lboundary"> {&quot;access_token&quot;: &quot;</stringProp>
+              <stringProp name="BoundaryExtractor.rboundary">&quot;,</stringProp>
+              <stringProp name="BoundaryExtractor.default">admin token not found</stringProp>
+              <boolProp name="BoundaryExtractor.default_empty_value">false</boolProp>
+              <stringProp name="BoundaryExtractor.match_number">1</stringProp>
+            </BoundaryExtractor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create/Edit dealer data" enabled="true"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${adminToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dealer Data Faker" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename">D:/Performance/Autofox/DealersAddingImages/Scripts/Dealer Data Faker.txt</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script"></stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CreateDealer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+&quot;email&quot;: &quot;${email}&quot;,&#xd;
+&quot;username&quot;: &quot;${userName}&quot;,&#xd;
+&quot;first_name&quot;: &quot;${firstName}&quot;,&#xd;
+&quot;last_name&quot;: &quot;${lastName}&quot;,&#xd;
+&quot;company_name&quot;: &quot;${companyName}&quot;,&#xd;
+&quot;company_address&quot;: &quot;${companyAddress}&quot;,&#xd;
+ &#xd;
+&quot;language&quot;: &quot;EN&quot;,&#xd;
+&quot;country_id&quot;: &quot;CH&quot;,&#xd;
+&quot;img_width&quot;: 1600,&#xd;
+ &#xd;
+&quot;disable_world_light&quot;: false,&#xd;
+&quot;disable_car_light&quot;: false,&#xd;
+&quot;allow_crm_preview&quot;: true,&#xd;
+&quot;allow_web_ai_conversion&quot;: true,&#xd;
+&quot;allow_psd_download&quot;: true,&#xd;
+&quot;allow_add_vehicles&quot;: true,&#xd;
+&quot;is_16_orientations_enabled&quot;: true,&#xd;
+&quot;allow_position_templates_update&quot;: true,&#xd;
+&quot;allow_interior_ai_update&quot;: true&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/admin/users</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Get dealer ID" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">dealerId</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add AI balance to dealer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+&quot;user_id&quot;: &quot;${dealerId}&quot;,&#xd;
+&quot;type&quot;:&quot;ai&quot;,&#xd;
+&quot;amount&quot;:&quot;500&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/admin/transactions</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add retouch balance to dealer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+&quot;user_id&quot;: &quot;${dealerId}&quot;,&#xd;
+&quot;type&quot;:&quot;retouch&quot;,&#xd;
+&quot;amount&quot;:&quot;500&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/admin/transactions</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add subscribtion to dealer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;user_id&quot;:&quot;${dealerId}&quot;,&#xd;
+	&quot;subscription_start_date&quot;:&quot;2024-01-01T00:00:00&quot;,&#xd;
+	&quot;subscription_end_date&quot;:&quot;2029-02-12T00:00:00&quot;,&#xd;
+	&quot;comment&quot;:&quot;Performance test JMeter practice&quot;&#xd;
+	}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/user-subscriptions</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add theme to dealer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;user_id&quot;:&quot;${dealerId}&quot;,&#xd;
+	&quot;theme_id&quot;:640&#xd;
+	}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/user-themes</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Save dealer oreintations - No Ai" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;position_template_ids&quot;: [&#xd;
+    &quot;front&quot;,&#xd;
+    &quot;front_left__narrow&quot;,&#xd;
+    &quot;front_left&quot;,&#xd;
+    &quot;front_left__wide&quot;,&#xd;
+    &quot;left&quot;,&#xd;
+    &quot;rear_left__wide&quot;,&#xd;
+    &quot;rear_left&quot;,&#xd;
+    &quot;rear_left__narrow&quot;,&#xd;
+    &quot;rear&quot;,&#xd;
+    &quot;rear_right__narrow&quot;,&#xd;
+    &quot;rear_right&quot;,&#xd;
+    &quot;rear_right__wide&quot;,&#xd;
+    &quot;right&quot;,&#xd;
+    &quot;front_right__wide&quot;,&#xd;
+    &quot;front_right&quot;,&#xd;
+    &quot;front_right__narrow&quot;,&#xd;
+    &quot;enter_driver_codriver&quot;,&#xd;
+    &quot;steering_wheel&quot;,&#xd;
+    &quot;dashboard&quot;,&#xd;
+    &quot;door_driver_down&quot;,&#xd;
+    &quot;rear_row_driver&quot;,&#xd;
+    &quot;front_panel_passenger&quot;,&#xd;
+    &quot;center_console_down&quot;,&#xd;
+    &quot;navigation&quot;,&#xd;
+    &quot;door_codriver_down&quot;,&#xd;
+    &quot;enter_codriver_driver&quot;,&#xd;
+    &quot;rear_row_codriver&quot;,&#xd;
+    &quot;trunk_straight&quot;,&#xd;
+    &quot;engine_compartment&quot;,&#xd;
+    &quot;rim_front_left&quot;,&#xd;
+    &quot;rim_front_right&quot;,&#xd;
+    &quot;rim_rear_left&quot;,&#xd;
+    &quot;rim_rear_right&quot;,&#xd;
+    &quot;panoramic_sunroof&quot;,&#xd;
+    &quot;feature_1&quot;,&#xd;
+    &quot;feature_2&quot;,&#xd;
+    &quot;feature_3&quot;,&#xd;
+    &quot;feature_4&quot;,&#xd;
+    &quot;feature_5&quot;,&#xd;
+    &quot;feature_6&quot;,&#xd;
+    &quot;feature_7&quot;,&#xd;
+    &quot;feature_8&quot;,&#xd;
+    &quot;feature_9&quot;,&#xd;
+    &quot;feature_10&quot;,&#xd;
+    &quot;feature_11&quot;,&#xd;
+    &quot;feature_12&quot;,&#xd;
+    &quot;feature_13&quot;,&#xd;
+    &quot;feature_14&quot;,&#xd;
+    &quot;feature_15&quot;,&#xd;
+    &quot;feature_16&quot;,&#xd;
+    &quot;feature_17&quot;,&#xd;
+    &quot;feature_18&quot;,&#xd;
+    &quot;feature_19&quot;,&#xd;
+    &quot;feature_20&quot;,&#xd;
+    &quot;feature_21&quot;,&#xd;
+    &quot;feature_22&quot;,&#xd;
+    &quot;feature_23&quot;,&#xd;
+    &quot;feature_24&quot;,&#xd;
+    &quot;feature_25&quot;,&#xd;
+    &quot;feature_26&quot;,&#xd;
+    &quot;feature_27&quot;,&#xd;
+    &quot;feature_28&quot;,&#xd;
+    &quot;feature_29&quot;,&#xd;
+    &quot;feature_30&quot;,&#xd;
+    &quot;feature_31&quot;,&#xd;
+    &quot;feature_32&quot;,&#xd;
+    &quot;feature_33&quot;,&#xd;
+    &quot;feature_34&quot;,&#xd;
+    &quot;feature_35&quot;,&#xd;
+    &quot;feature_36&quot;,&#xd;
+    &quot;feature_37&quot;,&#xd;
+    &quot;feature_38&quot;,&#xd;
+    &quot;feature_39&quot;,&#xd;
+    &quot;feature_40&quot;,&#xd;
+    &quot;feature_41&quot;,&#xd;
+    &quot;feature_42&quot;,&#xd;
+    &quot;feature_43&quot;,&#xd;
+    &quot;feature_44&quot;,&#xd;
+    &quot;feature_45&quot;,&#xd;
+    &quot;feature_46&quot;,&#xd;
+    &quot;feature_47&quot;,&#xd;
+    &quot;feature_48&quot;,&#xd;
+    &quot;feature_49&quot;,&#xd;
+    &quot;feature_50&quot;&#xd;
+  ],&#xd;
+  &quot;no_ai_position_template_ids&quot;: [&#xd;
+    &quot;front&quot;,&#xd;
+    &quot;front_left&quot;,&#xd;
+    &quot;left&quot;,&#xd;
+    &quot;rear_left&quot;,&#xd;
+    &quot;rear&quot;,&#xd;
+    &quot;rear_right&quot;,&#xd;
+    &quot;right&quot;,&#xd;
+    &quot;front_right&quot;,&#xd;
+    &quot;front_left__narrow&quot;,&#xd;
+    &quot;front_left__wide&quot;,&#xd;
+    &quot;rear_left__wide&quot;,&#xd;
+    &quot;rear_left__narrow&quot;,&#xd;
+    &quot;rear_right__narrow&quot;,&#xd;
+    &quot;rear_right__wide&quot;,&#xd;
+    &quot;front_right__wide&quot;,&#xd;
+    &quot;front_right__narrow&quot;,&#xd;
+    &quot;enter_driver_codriver&quot;,&#xd;
+    &quot;steering_wheel&quot;,&#xd;
+    &quot;dashboard&quot;,&#xd;
+    &quot;rear_row_driver&quot;,&#xd;
+    &quot;front_panel_passenger&quot;,&#xd;
+    &quot;center_console_down&quot;,&#xd;
+    &quot;navigation&quot;,&#xd;
+    &quot;enter_codriver_driver&quot;,&#xd;
+    &quot;rear_row_codriver&quot;,&#xd;
+    &quot;trunk_straight&quot;,&#xd;
+    &quot;engine_compartment&quot;,&#xd;
+    &quot;rim_front_left&quot;,&#xd;
+    &quot;rim_front_right&quot;,&#xd;
+    &quot;rim_rear_left&quot;,&#xd;
+    &quot;rim_rear_right&quot;,&#xd;
+    &quot;panoramic_sunroof&quot;&#xd;
+  ],&#xd;
+  &quot;retouch_position_template_ids&quot;: [],&#xd;
+  &quot;sorted_position_template_ids&quot;: [&#xd;
+    &quot;front&quot;,&#xd;
+    &quot;front_left__narrow&quot;,&#xd;
+    &quot;front_left&quot;,&#xd;
+    &quot;front_left__wide&quot;,&#xd;
+    &quot;left&quot;,&#xd;
+    &quot;rear_left__wide&quot;,&#xd;
+    &quot;rear_left&quot;,&#xd;
+    &quot;rear_left__narrow&quot;,&#xd;
+    &quot;rear&quot;,&#xd;
+    &quot;rear_right__narrow&quot;,&#xd;
+    &quot;rear_right&quot;,&#xd;
+    &quot;rear_right__wide&quot;,&#xd;
+    &quot;right&quot;,&#xd;
+    &quot;front_right__wide&quot;,&#xd;
+    &quot;front_right&quot;,&#xd;
+    &quot;front_right__narrow&quot;,&#xd;
+    &quot;enter_driver_codriver&quot;,&#xd;
+    &quot;steering_wheel&quot;,&#xd;
+    &quot;dashboard&quot;,&#xd;
+    &quot;door_driver_down&quot;,&#xd;
+    &quot;rear_row_driver&quot;,&#xd;
+    &quot;front_panel_passenger&quot;,&#xd;
+    &quot;center_console_down&quot;,&#xd;
+    &quot;navigation&quot;,&#xd;
+    &quot;door_codriver_down&quot;,&#xd;
+    &quot;enter_codriver_driver&quot;,&#xd;
+    &quot;rear_row_codriver&quot;,&#xd;
+    &quot;trunk_straight&quot;,&#xd;
+    &quot;engine_compartment&quot;,&#xd;
+    &quot;rim_front_left&quot;,&#xd;
+    &quot;rim_front_right&quot;,&#xd;
+    &quot;rim_rear_left&quot;,&#xd;
+    &quot;rim_rear_right&quot;,&#xd;
+    &quot;panoramic_sunroof&quot;,&#xd;
+    &quot;feature_1&quot;,&#xd;
+    &quot;feature_2&quot;,&#xd;
+    &quot;feature_3&quot;,&#xd;
+    &quot;feature_4&quot;,&#xd;
+    &quot;feature_5&quot;,&#xd;
+    &quot;feature_6&quot;,&#xd;
+    &quot;feature_7&quot;,&#xd;
+    &quot;feature_8&quot;,&#xd;
+    &quot;feature_9&quot;,&#xd;
+    &quot;feature_10&quot;,&#xd;
+    &quot;feature_11&quot;,&#xd;
+    &quot;feature_12&quot;,&#xd;
+    &quot;feature_13&quot;,&#xd;
+    &quot;feature_14&quot;,&#xd;
+    &quot;feature_15&quot;,&#xd;
+    &quot;feature_16&quot;,&#xd;
+    &quot;feature_17&quot;,&#xd;
+    &quot;feature_18&quot;,&#xd;
+    &quot;feature_19&quot;,&#xd;
+    &quot;feature_20&quot;,&#xd;
+    &quot;feature_21&quot;,&#xd;
+    &quot;feature_22&quot;,&#xd;
+    &quot;feature_23&quot;,&#xd;
+    &quot;feature_24&quot;,&#xd;
+    &quot;feature_25&quot;,&#xd;
+    &quot;feature_26&quot;,&#xd;
+    &quot;feature_27&quot;,&#xd;
+    &quot;feature_28&quot;,&#xd;
+    &quot;feature_29&quot;,&#xd;
+    &quot;feature_30&quot;,&#xd;
+    &quot;feature_31&quot;,&#xd;
+    &quot;feature_32&quot;,&#xd;
+    &quot;feature_33&quot;,&#xd;
+    &quot;feature_34&quot;,&#xd;
+    &quot;feature_35&quot;,&#xd;
+    &quot;feature_36&quot;,&#xd;
+    &quot;feature_37&quot;,&#xd;
+    &quot;feature_38&quot;,&#xd;
+    &quot;feature_39&quot;,&#xd;
+    &quot;feature_40&quot;,&#xd;
+    &quot;feature_41&quot;,&#xd;
+    &quot;feature_42&quot;,&#xd;
+    &quot;feature_43&quot;,&#xd;
+    &quot;feature_44&quot;,&#xd;
+    &quot;feature_45&quot;,&#xd;
+    &quot;feature_46&quot;,&#xd;
+    &quot;feature_47&quot;,&#xd;
+    &quot;feature_48&quot;,&#xd;
+    &quot;feature_49&quot;,&#xd;
+    &quot;feature_50&quot;&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/users/${dealerId}</stringProp>
+            <stringProp name="HTTPSampler.method">PATCH</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Save dealer oreintations - Ai enabled" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;position_template_ids&quot;: [&#xd;
+    &quot;front&quot;,&#xd;
+    &quot;front_left__narrow&quot;,&#xd;
+    &quot;front_left&quot;,&#xd;
+    &quot;front_left__wide&quot;,&#xd;
+    &quot;left&quot;,&#xd;
+    &quot;rear_left__wide&quot;,&#xd;
+    &quot;rear_left&quot;,&#xd;
+    &quot;rear_left__narrow&quot;,&#xd;
+    &quot;rear&quot;,&#xd;
+    &quot;rear_right__narrow&quot;,&#xd;
+    &quot;rear_right&quot;,&#xd;
+    &quot;rear_right__wide&quot;,&#xd;
+    &quot;right&quot;,&#xd;
+    &quot;front_right__wide&quot;,&#xd;
+    &quot;front_right&quot;,&#xd;
+    &quot;front_right__narrow&quot;,&#xd;
+    &quot;enter_driver_codriver&quot;,&#xd;
+    &quot;steering_wheel&quot;,&#xd;
+    &quot;dashboard&quot;,&#xd;
+    &quot;door_driver_down&quot;,&#xd;
+    &quot;rear_row_driver&quot;,&#xd;
+    &quot;front_panel_passenger&quot;,&#xd;
+    &quot;center_console_down&quot;,&#xd;
+    &quot;navigation&quot;,&#xd;
+    &quot;door_codriver_down&quot;,&#xd;
+    &quot;enter_codriver_driver&quot;,&#xd;
+    &quot;rear_row_codriver&quot;,&#xd;
+    &quot;trunk_straight&quot;,&#xd;
+    &quot;engine_compartment&quot;,&#xd;
+    &quot;rim_front_left&quot;,&#xd;
+    &quot;rim_front_right&quot;,&#xd;
+    &quot;rim_rear_left&quot;,&#xd;
+    &quot;rim_rear_right&quot;,&#xd;
+    &quot;panoramic_sunroof&quot;,&#xd;
+    &quot;feature_1&quot;,&#xd;
+    &quot;feature_2&quot;,&#xd;
+    &quot;feature_3&quot;,&#xd;
+    &quot;feature_4&quot;,&#xd;
+    &quot;feature_5&quot;,&#xd;
+    &quot;feature_6&quot;,&#xd;
+    &quot;feature_7&quot;,&#xd;
+    &quot;feature_8&quot;,&#xd;
+    &quot;feature_9&quot;,&#xd;
+    &quot;feature_10&quot;,&#xd;
+    &quot;feature_11&quot;,&#xd;
+    &quot;feature_12&quot;,&#xd;
+    &quot;feature_13&quot;,&#xd;
+    &quot;feature_14&quot;,&#xd;
+    &quot;feature_15&quot;,&#xd;
+    &quot;feature_16&quot;,&#xd;
+    &quot;feature_17&quot;,&#xd;
+    &quot;feature_18&quot;,&#xd;
+    &quot;feature_19&quot;,&#xd;
+    &quot;feature_20&quot;,&#xd;
+    &quot;feature_21&quot;,&#xd;
+    &quot;feature_22&quot;,&#xd;
+    &quot;feature_23&quot;,&#xd;
+    &quot;feature_24&quot;,&#xd;
+    &quot;feature_25&quot;,&#xd;
+    &quot;feature_26&quot;,&#xd;
+    &quot;feature_27&quot;,&#xd;
+    &quot;feature_28&quot;,&#xd;
+    &quot;feature_29&quot;,&#xd;
+    &quot;feature_30&quot;,&#xd;
+    &quot;feature_31&quot;,&#xd;
+    &quot;feature_32&quot;,&#xd;
+    &quot;feature_33&quot;,&#xd;
+    &quot;feature_34&quot;,&#xd;
+    &quot;feature_35&quot;,&#xd;
+    &quot;feature_36&quot;,&#xd;
+    &quot;feature_37&quot;,&#xd;
+    &quot;feature_38&quot;,&#xd;
+    &quot;feature_39&quot;,&#xd;
+    &quot;feature_40&quot;,&#xd;
+    &quot;feature_41&quot;,&#xd;
+    &quot;feature_42&quot;,&#xd;
+    &quot;feature_43&quot;,&#xd;
+    &quot;feature_44&quot;,&#xd;
+    &quot;feature_45&quot;,&#xd;
+    &quot;feature_46&quot;,&#xd;
+    &quot;feature_47&quot;,&#xd;
+    &quot;feature_48&quot;,&#xd;
+    &quot;feature_49&quot;,&#xd;
+    &quot;feature_50&quot;&#xd;
+  ],&#xd;
+  &quot;no_ai_position_template_ids&quot;: [&#xd;
+  ],&#xd;
+  &quot;retouch_position_template_ids&quot;: [],&#xd;
+  &quot;sorted_position_template_ids&quot;: [&#xd;
+    &quot;front&quot;,&#xd;
+    &quot;front_left__narrow&quot;,&#xd;
+    &quot;front_left&quot;,&#xd;
+    &quot;front_left__wide&quot;,&#xd;
+    &quot;left&quot;,&#xd;
+    &quot;rear_left__wide&quot;,&#xd;
+    &quot;rear_left&quot;,&#xd;
+    &quot;rear_left__narrow&quot;,&#xd;
+    &quot;rear&quot;,&#xd;
+    &quot;rear_right__narrow&quot;,&#xd;
+    &quot;rear_right&quot;,&#xd;
+    &quot;rear_right__wide&quot;,&#xd;
+    &quot;right&quot;,&#xd;
+    &quot;front_right__wide&quot;,&#xd;
+    &quot;front_right&quot;,&#xd;
+    &quot;front_right__narrow&quot;,&#xd;
+    &quot;enter_driver_codriver&quot;,&#xd;
+    &quot;steering_wheel&quot;,&#xd;
+    &quot;dashboard&quot;,&#xd;
+    &quot;door_driver_down&quot;,&#xd;
+    &quot;rear_row_driver&quot;,&#xd;
+    &quot;front_panel_passenger&quot;,&#xd;
+    &quot;center_console_down&quot;,&#xd;
+    &quot;navigation&quot;,&#xd;
+    &quot;door_codriver_down&quot;,&#xd;
+    &quot;enter_codriver_driver&quot;,&#xd;
+    &quot;rear_row_codriver&quot;,&#xd;
+    &quot;trunk_straight&quot;,&#xd;
+    &quot;engine_compartment&quot;,&#xd;
+    &quot;rim_front_left&quot;,&#xd;
+    &quot;rim_front_right&quot;,&#xd;
+    &quot;rim_rear_left&quot;,&#xd;
+    &quot;rim_rear_right&quot;,&#xd;
+    &quot;panoramic_sunroof&quot;,&#xd;
+    &quot;feature_1&quot;,&#xd;
+    &quot;feature_2&quot;,&#xd;
+    &quot;feature_3&quot;,&#xd;
+    &quot;feature_4&quot;,&#xd;
+    &quot;feature_5&quot;,&#xd;
+    &quot;feature_6&quot;,&#xd;
+    &quot;feature_7&quot;,&#xd;
+    &quot;feature_8&quot;,&#xd;
+    &quot;feature_9&quot;,&#xd;
+    &quot;feature_10&quot;,&#xd;
+    &quot;feature_11&quot;,&#xd;
+    &quot;feature_12&quot;,&#xd;
+    &quot;feature_13&quot;,&#xd;
+    &quot;feature_14&quot;,&#xd;
+    &quot;feature_15&quot;,&#xd;
+    &quot;feature_16&quot;,&#xd;
+    &quot;feature_17&quot;,&#xd;
+    &quot;feature_18&quot;,&#xd;
+    &quot;feature_19&quot;,&#xd;
+    &quot;feature_20&quot;,&#xd;
+    &quot;feature_21&quot;,&#xd;
+    &quot;feature_22&quot;,&#xd;
+    &quot;feature_23&quot;,&#xd;
+    &quot;feature_24&quot;,&#xd;
+    &quot;feature_25&quot;,&#xd;
+    &quot;feature_26&quot;,&#xd;
+    &quot;feature_27&quot;,&#xd;
+    &quot;feature_28&quot;,&#xd;
+    &quot;feature_29&quot;,&#xd;
+    &quot;feature_30&quot;,&#xd;
+    &quot;feature_31&quot;,&#xd;
+    &quot;feature_32&quot;,&#xd;
+    &quot;feature_33&quot;,&#xd;
+    &quot;feature_34&quot;,&#xd;
+    &quot;feature_35&quot;,&#xd;
+    &quot;feature_36&quot;,&#xd;
+    &quot;feature_37&quot;,&#xd;
+    &quot;feature_38&quot;,&#xd;
+    &quot;feature_39&quot;,&#xd;
+    &quot;feature_40&quot;,&#xd;
+    &quot;feature_41&quot;,&#xd;
+    &quot;feature_42&quot;,&#xd;
+    &quot;feature_43&quot;,&#xd;
+    &quot;feature_44&quot;,&#xd;
+    &quot;feature_45&quot;,&#xd;
+    &quot;feature_46&quot;,&#xd;
+    &quot;feature_47&quot;,&#xd;
+    &quot;feature_48&quot;,&#xd;
+    &quot;feature_49&quot;,&#xd;
+    &quot;feature_50&quot;&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/users/${dealerId}</stringProp>
+            <stringProp name="HTTPSampler.method">PATCH</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Edit dealer advanced settings" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;img_width&quot;: 1600,&#xd;
+  &quot;body_style&quot;: 0&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/users/${dealerId}</stringProp>
+            <stringProp name="HTTPSampler.method">PATCH</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Edit dealer token" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;login_token&quot;:&quot;${dealerId}&quot; &#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">admin/users/${dealerId}</stringProp>
+            <stringProp name="HTTPSampler.method">PATCH</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Dealer auth" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Dealer login" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;login_token&quot;:&quot;${dealerId}&quot;&#xd;
+}&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">auth/login-mobile</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Get dealer access token" enabled="true">
+              <stringProp name="BoundaryExtractor.useHeaders">false</stringProp>
+              <stringProp name="BoundaryExtractor.refname">dealerToken</stringProp>
+              <stringProp name="BoundaryExtractor.lboundary"> {&quot;access_token&quot;: &quot;</stringProp>
+              <stringProp name="BoundaryExtractor.rboundary">&quot;,</stringProp>
+              <stringProp name="BoundaryExtractor.default">dealer token not found</stringProp>
+              <boolProp name="BoundaryExtractor.default_empty_value">false</boolProp>
+              <stringProp name="BoundaryExtractor.match_number">1</stringProp>
+            </BoundaryExtractor>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create vehicle" enabled="true"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.value">Bearer ${dealerToken}</stringProp>
+                <stringProp name="Header.name">Authorization</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create vehicle" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;vin&quot;:&quot;${__time(,)}&quot;,&#xd;
+	&quot;preferred_theme_id&quot;:640,&#xd;
+	&quot;body_style&quot;:0&#xd;
+	}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">vehicles</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Get vehicle Id" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">vehicleId</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">vehicle id not found</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Repeate upload image request per orientation" enabled="true">
+          <stringProp name="LoopController.loops">26</stringProp>
+        </LoopController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.value">Bearer ${dealerToken}</stringProp>
+                <stringProp name="Header.name">Authorization</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="upload image to orientation" enabled="true">
+            <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+              <collectionProp name="HTTPFileArgs.files">
+                <elementProp name="${file_path}" elementType="HTTPFileArg">
+                  <stringProp name="File.mimetype">image/jpeg</stringProp>
+                  <stringProp name="File.path">${file_path}</stringProp>
+                  <stringProp name="File.paramname">file</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="vehicle_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">vehicle_id</stringProp>
+                  <stringProp name="Argument.value">${vehicleId}</stringProp>
+                </elementProp>
+                <elementProp name="position_template_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">position_template_id</stringProp>
+                  <stringProp name="Argument.value">${orientation_id}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.path">vehicle-images</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">false</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <boolProp name="HTTPSampler.md5">false</boolProp>
+            <intProp name="HTTPSampler.ipSourceType">0</intProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Vehicle images" enabled="true">
+              <stringProp name="delimiter">,</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="filename">D:/Performance/Autofox/DealersAddingImages/TestData/UploadVehicleImages_26.csv</stringProp>
+              <boolProp name="ignoreFirstLine">true</boolProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <stringProp name="shareMode">shareMode.thread</stringProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="variableNames"></stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Human delay" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Check values" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
